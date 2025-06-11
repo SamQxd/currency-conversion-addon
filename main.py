@@ -1,4 +1,25 @@
 from currency_converter import CurrencyConverter
+import pycountry
+from get_currency_code import get_currency_code
+
+#for currency in pycountry.currencies:
+#    print(f"Name: {currency.name}, Code: {currency.alpha_3}")
+
+test_inputs = [
+    ("US Dollar", None),       # Correct name
+    ("$", "Australia"),        # Symbol with country context
+    ("Euro", None),            # Name
+    ("€", None),               # Symbol
+    ("Yen", None),             # Correct name
+    ("¥", "Japan"),               # Symbol
+    ("Maldivian Rufiyaa", None),  # Name
+    ("£", None),               # Symbol
+    ("$", "Australia"),        # Symbol with country context
+]
+
+for input_str, country in test_inputs:
+    code = get_currency_code(input_str, country)
+    print(f"Input: {input_str}, Code: {code}")
 
 c = CurrencyConverter()
 amount = 180
